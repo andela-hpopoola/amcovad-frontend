@@ -1,38 +1,33 @@
 import React from 'react';
-// import Button from '@/components/form/Button';
-import Button from '../components/form/Button';
+import { Button } from '../components/form/Button';
 
-export default {
+const Stories = {
   title: 'Components/Button',
   component: Button,
-  argTypes: { onClick: { action: 'onClick' } }
+  argTypes: {
+    onClick: { action: 'onClick' },
+    color: {
+      options: ['primary', 'secondary'],
+      control: { type: 'radio' }
+    }
+  }
+};
+
+export default Stories;
+
+const defaultParameters = {
+  children: 'Sign in',
+  outline: false
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 
-Primary.args = {
-  children: 'Sign in',
-  outline: false
-};
+Primary.args = defaultParameters;
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  color: 'secondary',
-  children: 'Try it now',
-  outline: false
-};
-
-export const Outline = Template.bind({});
-Outline.args = {
-  children: 'Outline Primary',
-  outline: true
-};
-
-export const OutlineBtn = Template.bind({});
-OutlineBtn.args = {
-  color: 'secondary',
-  children: 'Outline Secondary',
-  outline: true
+  ...defaultParameters,
+  color: 'secondary'
 };

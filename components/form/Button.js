@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 
-const Button = ({ children, className, color, onClick, outline }) => {
+const Button = ({ children, color, onClick, outline }) => {
   const outlineClass = outline ? 'outline' : 'solid';
 
   return (
@@ -11,7 +11,7 @@ const Button = ({ children, className, color, onClick, outline }) => {
   );
 };
 
-Button.PropTypes = {
+Button.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,
