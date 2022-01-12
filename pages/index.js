@@ -1,8 +1,12 @@
 import Button from '@/components/form/Button';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
     <>
+      <Navbar />
+      <br />
+      <br />
       <h1 className={styles.header}>Welcome to Amcovad</h1>
 
       <h2>Solid Button</h2>
