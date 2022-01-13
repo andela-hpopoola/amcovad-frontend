@@ -5,14 +5,13 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <br />
-      <br />
+
       <h1 className={styles.header}>Welcome to Amcovad</h1>
 
       <h2>Solid Button</h2>
       <Button>Sign in</Button>
 
-      <Button color="secondary">try it now</Button>
+      <Button color="secondary">Try it now</Button>
 
       <h2>Outline Button</h2>
 
@@ -26,5 +25,5 @@ export default function Home() {
 }
 
 const styles = {
-  header: 'text-3xl font-bold underline text-red-500'
+  header: 'text-3xl font-bold underline text-red-500 m-10'
 };
