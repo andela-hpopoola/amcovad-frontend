@@ -1,5 +1,7 @@
-import Button from '@/components/form/Button';
-// import Navbar from '@/components/Navbar';
+import { Button, Input } from '@/components/form';
+import Navbar from '@/components/Navbar';
+import { PasswordCheckIcon } from '../assets/svgs';
+
 
 export default function Home() {
   return (
@@ -11,7 +13,7 @@ export default function Home() {
       <h2>Solid Button</h2>
       <Button>Sign in</Button>
 
-      <Button color="secondary">try it now</Button>
+      <Button color="secondary">Try it now</Button>
 
       <h2>Outline Button</h2>
 
@@ -20,6 +22,14 @@ export default function Home() {
       <Button outline color="secondary">
         Try it now
       </Button>
+
+      <Input label="Email address" name="email" type="email" />
+      <Input
+        label="Password"
+        name="password"
+        type="password"
+        Icon={<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />}
+      />
     </>
   );
 }
