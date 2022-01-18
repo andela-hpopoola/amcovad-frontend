@@ -1,8 +1,11 @@
 import Button from '@/components/form/Button';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
     <>
+      <Navbar />
+
       <h1 className={styles.header}>Welcome to Amcovad</h1>
 
       <h2>Solid Button</h2>
@@ -22,5 +25,5 @@ export default function Home() {
 }
 
 const styles = {
-  header: 'text-3xl font-bold underline text-red-500'
+  header: 'text-3xl font-bold underline text-red-500 mt-10'
 };
