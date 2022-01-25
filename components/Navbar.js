@@ -5,8 +5,8 @@ import Button from '../components/form/Button';
 
 const Navbar = () => {
   return (
-    <header>
-      <nav className="flex items-center bg-[#F5F6F8]  h-[4.8125rem] p-8">
+    <header className="fixed z-10 border outline-[5px] border-[#67D1FB]">
+      <nav className=" w-screen flex items-center bg-[#F5F6F8]  h-[4rem] p-8">
         <div className="ml-16">
           <Image src={Logo} width="167" height="42" alt="logo" />
         </div>
