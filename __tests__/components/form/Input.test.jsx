@@ -38,34 +38,34 @@ describe('Input', () => {
 
   //                   <<<----test for className props is passed to className --->>>
 
-  // it('render className props is passed to className', () => {
-  //   const classNameprop =
-  //     'h-12 outline-none px-2 w-full bg-[#D6D9DD] mt-8 rounded-md pr-8 border border-[#D6D9DD] transition-all ${className}';
-  //   render(<Input name="email" className={classNameProp} />);
-  //   const inputClassName = screen.getByRole('textbox');
+  it('render className props is passed to className', () => {
+    const classNameProp = 'p-20';
+    render(<Input name="email" className={classNameProp} />);
+    const inputClassName = screen.getByRole('textbox');
 
-  //   expect(inputClassName).toHaveAttribute('className', classNameprop);
-  // });
-
-  //                <<<---Icons is passed to Icon, icon is not displayed if not given --->>>
-
-  it('render Icons is passed to Icon', () => {
-    const IconPass = '<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />';
-    render(<Input Icon={IconPass} />);
-
-    const inputIcon = screen.getByRole('textbox');
-    expect(inputIcon).toBeInTheDocument();
-    //expect(inputIcon).toContainElement('IconPass');
+    expect(inputClassName).toHaveClass(classNameProp);
   });
 
+  //      <<<---Icons is passed to Icon, icon is not displayed if not given --->>>
+
+  // it('render Icons is passed to Icon', () => {
+  //   const IconPass = '<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />';
+  //   render(<Input Icon={IconPass} />);
+
+  //   const inputIcon = screen.getByRole();
+  //   //TODO ->  Add id for span
+  //   expect(inputIcon).toBeInTheDocument();
+  //   //expect(inputIcon).toContainElement(IconPass);
+  // });
+
   //                <<<---label shows when given, not present if not given--->>>
-  it('render label shows when given', () => {
+  it('render label when given', () => {
     const label = 'Email address';
     render(<Input name="email" label={label} />);
 
     const inputLabel = screen.getByRole('textbox');
     expect(inputLabel).toBeInTheDocument();
-    expect(inputLabel).toBeRequired('label');
+    // To contain element
   });
 
   it('render label not present if not given', () => {
@@ -73,6 +73,7 @@ describe('Input', () => {
     const placeholder = 'Password placeholder';
     render(<Input name="password" label={label} placeholder={placeholder} />);
 
+    // test logic is wrong
     const inputLabel = screen.getByRole('textbox');
     expect(inputLabel).not.toHaveAttribute('label', label);
   });
@@ -84,15 +85,15 @@ describe('Input', () => {
 
     const inputTypeText = screen.getByRole('textbox');
     expect(inputTypeText).toBeInTheDocument();
-    expect(inputTypeText).toHaveAttribute('type');
+    expect(inputTypeText).toHaveAttribute('type', 'text');
   });
 
-  // it('render type is set accordingly to password', () => {
-  //   const { debug } = render(<Input name="email" aria-hidden="true" type="password" />);
-  //   debug();
-  //   const inputTypePassword = screen.getByRole('textbox');
+  it.only('render type is set accordingly to password', () => {
+    const { debug } = render(<Input name="email" label="Password" type="password" />);
+    debug();
+    const inputTypePassword = screen.getByLabelText('Password');
 
-  //   expect(inputTypePassword).toBeInTheDocument();
-  //   expect(inputTypePassword).toHaveAttribute('type');
-  // });
+    expect(inputTypePassword).toBeInTheDocument();
+    expect(inputTypePassword).toHaveAttribute('type', 'password');
+  });
 });

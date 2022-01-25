@@ -2,7 +2,6 @@ import { Button, Input } from '@/components/form';
 import Navbar from '@/components/Navbar';
 import { PasswordCheckIcon } from '../assets/svgs';
 
-
 export default function Home() {
   return (
     <>
@@ -29,6 +28,7 @@ export default function Home() {
         name="password"
         type="password"
         Icon={<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />}
+        className="p-20"
       />
     </>
   );

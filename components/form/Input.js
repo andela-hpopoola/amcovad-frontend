@@ -11,11 +11,15 @@ const Input = ({ className, Icon, label, name, placeholder, type }) => {
           placeholder={label ? null : placeholder}
           type={type}
           required
+          id={name}
         />
-        <label className="text-sm absolute top-11 text-[#344055] left-2 pointer-events-none transition-all">
+        <label
+          htmlFor={name}
+          className="text-sm absolute top-11 text-[#344055] left-2 pointer-events-none transition-all"
+        >
           {label}
         </label>
-        <span className="absolute top-12 right-2 cursor-pointer ">{Icon}</span>
+        {Icon && <span className="absolute top-12 right-2 cursor-pointer ">{Icon}</span>}
       </div>
     </div>
   );
@@ -23,9 +27,9 @@ const Input = ({ className, Icon, label, name, placeholder, type }) => {
 Input.propTypes = {
   className: PropTypes.string,
   Icon: PropTypes.shape({
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    fill: PropTypes.string.isRequired
+    width: PropTypes.number,
+    height: PropTypes.number,
+    fill: PropTypes.string
   }),
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
