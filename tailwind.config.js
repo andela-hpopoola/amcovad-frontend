@@ -31,6 +31,7 @@ module.exports = {
         'amcovad-secondary-darker': '#0C1A2C',
         'amcovad-info': '#01C4DF',
         'amcovad-white': '#FFFFFF',
+        'amcovad-black': '#000000',
         'amcovad-danger': '#FB3640',
         'amcovad-success': '#00CA69',
         'amcovad-warning': '#F3C000'
