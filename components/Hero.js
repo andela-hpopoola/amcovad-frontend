@@ -31,7 +31,7 @@ const Hero = () => {
                   <span className="block xl:inline">Digital approach to </span>
                   <span className="block xl:inline">a secure deal & transactions</span>
                 </h1>
-                <p className="text-amcovad-secondary-darker font-Inter text-[0.75rem] sm:font-[500] font-normal mx-auto sm:max-w-md lg:text-xl md:max-w-3xl">
+                <p className="text-amcovad-tertiary font-Inter text-[0.75rem] sm:font-[500] font-normal mx-auto sm:max-w-md lg:text-xl md:max-w-3xl">
                   Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia.
                   Salutantibus vitae elit libero, a pharetra augue.
                 </p>
