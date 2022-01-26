@@ -1,14 +1,14 @@
 import { Button, Input } from '@/components/form';
-import { Navbar, Hero } from '@/components/index';
+import Navbar from '@/components/Navbar';
 import { PasswordCheckIcon } from '../assets/svgs';
+
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <Hero />
+      {/* <Navbar /> */}
 
-      {/* <h1 className={styles.header}>Welcome to Amcovad</h1>
+      <h1 className={styles.header}>Welcome to Amcovad</h1>
 
       <h2>Solid Button</h2>
       <Button>Sign in</Button>
@@ -29,7 +29,7 @@ export default function Home() {
         name="password"
         type="password"
         Icon={<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />}
-      /> */}
+      />
     </>
   );
 }
