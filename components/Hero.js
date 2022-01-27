@@ -261,7 +261,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <footer className="bg-amcovad-secondary-darker bg-cover bg-left lg:bg-top  bg-[url('../assets/footer-hexagons.png')]">
+      <footer className="bg-amcovad-tertiary bg-cover bg-left lg:bg-top  bg-[url('../assets/footer-hexagons.png')]">
         <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full pb-24 lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="container px-6 py-4 mx-auto">
             <div className="grid gap-4 lg:gap-20 row-gap-10 mb-8 lg:grid-cols-6">
