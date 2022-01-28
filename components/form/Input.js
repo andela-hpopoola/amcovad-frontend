@@ -19,7 +19,11 @@ const Input = ({ className, Icon, label, name, placeholder, type }) => {
         >
           {label}
         </label>
-        {Icon && <span className="absolute top-12 right-2 cursor-pointer ">{Icon}</span>}
+        {Icon && (
+          <span className="absolute top-12 right-2 cursor-pointer" data-testid="icon">
+            {Icon}
+          </span>
+        )}
       </div>
     </div>
   );

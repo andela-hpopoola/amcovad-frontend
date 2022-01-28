@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { PasswordCheckIcon } from '../../../assets/svgs';
 import { Input } from '../../../components/form';
 
 describe('Input', () => {
@@ -36,8 +37,6 @@ describe('Input', () => {
     expect(inputPlaceHolder).toHaveAttribute('placeholder', placeholder);
   });
 
-  //                   <<<----test for className props is passed to className --->>>
-
   it('render className props is passed to className', () => {
     const classNameProp = 'p-20';
     render(<Input name="email" className={classNameProp} />);
@@ -46,26 +45,22 @@ describe('Input', () => {
     expect(inputClassName).toHaveClass(classNameProp);
   });
 
-  //      <<<---Icons is passed to Icon, icon is not displayed if not given --->>>
+  it('render Icons is passed to Icon', () => {
+    const IconPass = <PasswordCheckIcon width="18px" height="18px" fill="#292D32" />;
+    render(<Input name="email" Icon={IconPass} />);
 
-  // it('render Icons is passed to Icon', () => {
-  //   const IconPass = '<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />';
-  //   render(<Input Icon={IconPass} />);
+    const inputIcon = screen.getByTestId('icon');
 
-  //   const inputIcon = screen.getByRole();
-  //   //TODO ->  Add id for span
-  //   expect(inputIcon).toBeInTheDocument();
-  //   //expect(inputIcon).toContainElement(IconPass);
-  // });
+    expect(inputIcon.querySelector('#icon > svg > g > path'));
+    expect(inputIcon).toBeInTheDocument('icon');
+  });
 
-  //                <<<---label shows when given, not present if not given--->>>
   it('render label when given', () => {
     const label = 'Email address';
     render(<Input name="email" label={label} />);
 
-    const inputLabel = screen.getByRole('textbox');
-    expect(inputLabel).toBeInTheDocument();
-    // To contain element
+    const inputLabel = screen.getByText(label);
+    expect(inputLabel).toBeInTheDocument(label, 'Email address');
   });
 
   it('render label not present if not given', () => {
@@ -73,12 +68,9 @@ describe('Input', () => {
     const placeholder = 'Password placeholder';
     render(<Input name="password" label={label} placeholder={placeholder} />);
 
-    // test logic is wrong
-    const inputLabel = screen.getByRole('textbox');
-    expect(inputLabel).not.toHaveAttribute('label', label);
+    const inputLabel = screen.getByPlaceholderText(placeholder);
+    expect(inputLabel).toBeInTheDocument(label);
   });
-
-  //                       <<<----type is set accordingly (text, password, email)---->>>
 
   it('render type is set accordingly to text ', () => {
     render(<Input name="email" />);
@@ -88,12 +80,21 @@ describe('Input', () => {
     expect(inputTypeText).toHaveAttribute('type', 'text');
   });
 
-  it.only('render type is set accordingly to password', () => {
-    const { debug } = render(<Input name="email" label="Password" type="password" />);
-    debug();
+  it('render type is set accordingly to password', () => {
+    render(<Input name="email" label="Password" type="password" />);
+
     const inputTypePassword = screen.getByLabelText('Password');
 
     expect(inputTypePassword).toBeInTheDocument();
     expect(inputTypePassword).toHaveAttribute('type', 'password');
+  });
+
+  it('render type is set accordingly to email', () => {
+    render(<Input name="email" label="Email" type="email" />);
+
+    const inputTypeEmail = screen.getByLabelText('Email');
+
+    expect(inputTypeEmail).toBeInTheDocument();
+    expect(inputTypeEmail).toHaveAttribute('type', 'email');
   });
 });
