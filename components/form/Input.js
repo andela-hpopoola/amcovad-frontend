@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '../../assets/svgs/svgs';
+import { Label, ErrorMessage } from '.';
 
-const Input = ({ className, Icon, label, name, placeholder, type }) => {
+const Input = ({ className, Icon, labelClassName, name, placeholder, label, type }) => {
   const {
     register,
     formState: { errors }
@@ -26,7 +27,6 @@ const Input = ({ className, Icon, label, name, placeholder, type }) => {
   const hasErrors = !!errors?.[name];
 
   const errorClass = hasErrors ? 'focus:border-amcovad-danger' : 'focus:border-amcovad-primary-500';
-  const errorLabel = hasErrors ? 'peer-focus:text-amcovad-danger' : 'peer-focus:text-amcovad-primary-500';
 
   return (
     <div className="relative z-0 mb-4 w-full group">
@@ -38,23 +38,15 @@ const Input = ({ className, Icon, label, name, placeholder, type }) => {
         {...register(name)}
         className={`${errorClass} block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer ${className}`}
       />
-      <label
-        htmlFor={name}
-        className={`${errorLabel} absolute text-sm text-amcovad-secondary-700 duration-300 transform -translate-y-7 scale-75 top-3 left-1 z-10 origin-[0] peer-focus:left-1  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7`}
-      >
-        {label}
-      </label>
+      <Label name={name} htmlFor={name} floatLabel text={label} className={`${labelClassName}`} />
+
       {inputIcon && (
         <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">
           {inputIcon}
         </span>
       )}
 
-      {errors?.[name] && (
-        <div className="text-amcovad-danger py-1">
-          <p>{errors?.[name]?.message}</p>
-        </div>
-      )}
+      <ErrorMessage name={name} />
     </div>
   );
 };
