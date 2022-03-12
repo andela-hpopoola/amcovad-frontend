@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     fontFamily: {
       RozhaOne: ['Rozha One', 'serif'],
-      Inter: ['Inter', 'sans-serif']
+      Inter: ['Inter', 'sans-serif'],
+      Poppins: ['Poppins', 'sans-serif']
     },
     extend: {
       backgroundImage: {
@@ -36,7 +37,8 @@ module.exports = {
         'amcovad-black': '#000000',
         'amcovad-danger': '#FB3640',
         'amcovad-success': '#00CA69',
-        'amcovad-warning': '#F3C000'
+        'amcovad-warning': '#F3C000',
+        'amcovad-tertiary-color': '#161E54'
       }
     }
   },
