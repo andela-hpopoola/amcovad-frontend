@@ -12,7 +12,6 @@ export function Checkbox({ containerClassName, inputClassName, label, name, valu
         <input
           id={`checkbox-${name}-${value.toString()}`}
           className={classNames('appearance-none', inputClassName)}
-          name={name}
           type="checkbox"
           {...register(name)}
           value={value}
@@ -32,7 +31,7 @@ export function CheckboxGroup({ name, options }) {
         const optionValue = value || label;
         return <Checkbox key={index} name={name} value={optionValue} label={optionLabel} containerClassName="pb-1" />;
       })}
-      <ErrorMessage name={name} errorClassName="text-sm" />
+      <ErrorMessage name={name} />
     </>
   );
 }
